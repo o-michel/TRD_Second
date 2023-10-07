@@ -1,0 +1,96 @@
+const Instructor = [
+    {
+      id: 1,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "08032037522",
+      title: "Instructor",
+      enrollmentDate: "02-04-2020",
+      Skills: "Microsoft Word",
+      experience: {
+        title: "Accountant -company A",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+    {
+      id: 2,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "07034037721",
+      title: "Instructor",
+      enrollmentDate: "05-04-2020",
+      Skills: "Exel",
+      experience: {
+        title: "Adminstrative-company B",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+    {
+      id: 3,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "09034037831",
+      title: "Instructor",
+      enrollmentDate: "01-05-2020",
+      Skills: "Full Stack",
+      experience: {
+        title: "Software Dev -company D",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+    {
+      id: 4,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "08034037821",
+      title: "Instructor",
+      enrollmentDate: "03-05-2020",
+      Skills: "frontend",
+      experience: {
+        title: "frontend Dev -company D",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+    {
+      id: 5,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "08032037522",
+      title: "Instructor",
+      enrollmentDate: "02-04-2020",
+      Skills: "Microsoft Word",
+      experience: {
+        title: "Accountant -company A",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+    {
+      id: 6,
+      course: "Engineering 101",
+      coInstructor: "Dr M.O Onatola, Dr M.O Ilori",
+      duration: "10/13 weeks",
+      phoneNumber: "07034037721",
+      title: "Instructor",
+      enrollmentDate: "05-04-2020",
+      Skills: "Exel",
+      experience: {
+        title: "Adminstrative-company B",
+        description: "I work with a team and I am the one that handle there UI",
+      },
+      img: "https...",
+    },
+   
+  ];
+  
+  export default Instructor;
+  

@@ -34,6 +34,7 @@ import StudentDetail from './pages/detail/student';
 // import Home from './components/home';
 
 import AdminDashboard from './pages/dashboard/Admin/AdminDashboard';
+import InstructorDashboard from './pages/dashboard/Instructor/InstructorDashboard';
 import Students from './component/dashboard/InstructorsProfile';
 import Home from './component/dashboard/Home';
 
@@ -116,6 +117,9 @@ function App() {
             {/* <Route path='/dashboard/instructor' element={<AdminDashboard />} /> */}
             {/* <Route path='/instructor/dashboard' element={<InstructorDashboard />} />
             <Route path='/instructor/course/:id' element={<ViewAssignedCourseStudent />} /> */}
+          </Route>
+          <Route  path='instructor/*' element={<InstructorDashboard />} >
+            <Route path='instructor' element={<Home />}/>
           </Route>
           <Route >
             {/* <Route path='/admin/dashboard' element={<AdminMainBody />} />

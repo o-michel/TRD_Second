@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BsSearch } from "react-icons/bs";
-import { Link, useParams,useMatch } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import studentData from '../../Data/User'
 
@@ -28,7 +28,7 @@ const StudentsTakingCourse = () => {
 
 
   // const { id } = useParams();
-  console.log("params", useMatch);
+  // console.log("params", id);
   
   // Handle search
 const handleSearch = (event) => {
@@ -225,10 +225,11 @@ const handleSearch = (event) => {
 
   return (
     <div className="max-w-screen-xl mx-auto  bg-white p-6 rounded shadow  flex-colume align-middle justify-self-center justify-center ">
-      
-      <div className=" flex justify-end ">
-          <div className="group relative">
+      <div className="flex justify-center w-[90%] mt-6">
 
+          
+      <div className=" flex justify-end">
+          <div className="group relative">
             <button
               onClick={() => setShowAddPop(true)}
               className=" bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-xs md:text-base"
@@ -236,16 +237,10 @@ const handleSearch = (event) => {
               Add Student
             </button>
             <div className="hidden group-hover:block absolute bg-gray-100 text-sm text-gray-700 p-2 rounded shadow-md">
-              You can add Student
+              You can add student
             </div>
-
           </div>
         </div>
-        
-      <div className="flex justify-center w-[90%] mt-1 md:-mt-5">
-
-          
-      
 
 
         <form
@@ -265,12 +260,6 @@ const handleSearch = (event) => {
           />
           <BsSearch className="ml-2 text-2xl text-blue-600" />
         </form>
-
-
-        
-
-
-
       </div>
       <h2 className="text-2xl font-semibold my-8">Students Taking Course</h2>
      

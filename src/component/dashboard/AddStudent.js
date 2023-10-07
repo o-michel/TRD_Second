@@ -1,7 +1,8 @@
 // StudentForm.js
 import React, { useState } from 'react';
+import Icon_x from "../../Assets/Icons/x-close.png";
 
-const StudentForm = () => {
+const StudentForm = ({onClose, onData}) => {
   const [student, setStudent] = useState({
     name: '',
     studentId: '',
@@ -12,16 +13,26 @@ const StudentForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setStudent({ ...student, [name]: value });
+    console.log("student",student);
+    
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onData(student)
+    console.log("data student",student);
+    // You can add your logic here to handle the form submission, e.g., sending data to a server or updating state.
+  };
+  const handleCancel = (e) => {
+    // e.preventDefault();
+    onClose()
     // You can add your logic here to handle the form submission, e.g., sending data to a server or updating state.
   };
 
   return (
     // <div className="min-h-screen flex items-center justify-center bg-blue-50">
       <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3">
+        <button className='float-right' onClick={handleCancel}><img src={Icon_x} alt='Icon x close' /></button>
         <h2 className="text-3xl font-semibold text-blue-600 mb-4">Add Student</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
