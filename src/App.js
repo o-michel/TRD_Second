@@ -28,14 +28,15 @@ import "./App.css";
 import Contact from './pages/contact';
 import AboutPage from './pages/about';
 import Events from './pages/events';
-import StudentDashboard from './pages/dashboard/student';
+// import StudentDashboard from './pages/dashboard/student';
 // import AdminDashboard from './pages/dashboard/admin';
 import StudentDetail from './pages/detail/student';
 // import Home from './components/home';
 
 import AdminDashboard from './pages/dashboard/Admin/AdminDashboard';
 import InstructorDashboard from './pages/dashboard/Instructor/InstructorDashboard';
-import Students from './component/dashboard/InstructorsProfile';
+import UserDashboard from './pages/dashboard/Student/StudentDashboard';
+// import Students from './component/dashboard/InstructorsProfile';
 import Home from './component/dashboard/Home';
 
 
@@ -120,6 +121,9 @@ function App() {
           </Route>
           <Route  path='instructor/*' element={<InstructorDashboard />} >
             <Route path='instructor' element={<Home />}/>
+          </Route>
+          <Route  path='user/*' element={<UserDashboard />} >
+            <Route path='user' element={<Home />}/>
           </Route>
           <Route >
             {/* <Route path='/admin/dashboard' element={<AdminMainBody />} />

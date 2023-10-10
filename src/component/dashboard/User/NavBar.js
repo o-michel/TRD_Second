@@ -124,7 +124,7 @@ const NavBar = () => {
             {isVisible &&  <div className="w-full flex-grow lg:hidden  lg:items-center lg:w-auto  mt-2 lg:mt-0 bg-white z-20" id="nav-content">
                 <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
                     <li className="mr-6 my-2 md:my-0">
-                        <Link onClick={() =>handleButtonClick('home')} to="/instructor" className={`block py-1 md:py-3 pl-1 align-middle  border-b-2  hover:border-blue-600 ${isActive === 'home' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}  >
+                        <Link onClick={() =>handleButtonClick('home')} to="/user" className={`block py-1 md:py-3 pl-1 align-middle  border-b-2  hover:border-blue-600 ${isActive === 'home' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}  >
                             <i className="fas fa-home fa-fw mr-3 text-pink-600"></i><span className="pb-1 md:pb-0 text-sm">Home</span>
                         </Link>
                     </li>
@@ -133,21 +133,21 @@ const NavBar = () => {
                             <i className="fas fa-chart-area fa-fw mr-3"></i><span className="pb-1 md:pb-0 text-sm">Courses</span>
                         </Link>
                     </li>
-                    <li className="mr-6 my-2 md:my-0">
+                    {/* <li className="mr-6 my-2 md:my-0">
                         <Link onClick={() =>handleButtonClick('Student')} to="students" className={`block py-1 md:py-3 pl-1 align-middle border-b-2 hover:border-blue-600 ${isActive === 'Student' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}>
                             <i className="fas fa-tasks fa-fw mr-3"></i><span className="pb-1 md:pb-0 text-sm">Student</span>
                         </Link>
-                    </li>
-                    {/* <li className="mr-6 my-2 md:my-0">
+                    </li> */}
+                    <li className="mr-6 my-2 md:my-0">
                         <Link onClick={() =>handleButtonClick('Instructors')} to="instructors" className={`block py-1 md:py-3 pl-1 align-middle border-b-2 hover:border-blue-600 ${isActive === 'Instructors' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}>
                             <i className="fa fa-envelope fa-fw mr-3"></i><span className="pb-1 md:pb-0 text-sm">Instructors</span>
                         </Link>
-                    </li> */}
-                    {/* <li className="mr-6 my-2 md:my-0">
+                    </li>
+                    <li className="mr-6 my-2 md:my-0">
                         <Link onClick={() =>handleButtonClick('Completed course')} to="completed" className={`block py-1 md:py-3 pl-1 align-middle border-b-2 hover:border-blue-600 ${isActive === 'Completed course' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}>
                          <i className="fa fa-wallet fa-fw mr-3"></i><span className="pb-1 md:pb-0 text-sm">Completed course</span>
                         </Link>
-                    </li> */}
+                    </li>
                     <li className="mr-6 my-2 md:my-0">
                         <Link onClick={() =>handleButtonClick('placeholder')} to="#" className={`block py-1 md:py-3 pl-1 align-middle border-b-2 hover:border-blue-600 ${isActive === 'placeholder' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`} >                           
                         <i className="fa fa-wallet fa-fw mr-3"></i><span className="pb-1 md:pb-0 text-sm">Achivement</span>
@@ -174,7 +174,7 @@ const NavBar = () => {
                <div className="w-full flex-grow lg:flex  lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20" id="nav-content">
                 <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
                     <li className="mr-6 my-2 md:my-0">
-                        <Link onClick={() =>handleButtonClick('home')} to="/instructor" className={`block py-1 md:py-3 pl-1 align-middle  border-b-2  hover:border-blue-600 ${isActive === 'home' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}  >
+                        <Link onClick={() =>handleButtonClick('home')} to="/user" className={`block py-1 md:py-3 pl-1 align-middle  border-b-2  hover:border-blue-600 ${isActive === 'home' ? 'text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600 ' : ''}`}  >
                             <i className="fas fa-home fa-fw mr-3 text-pink-600"></i><span className="pb-1 md:pb-0 text-sm">Home</span>
                         </Link>
                     </li>

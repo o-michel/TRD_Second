@@ -22,6 +22,7 @@ const StudentForm = ({onClose, onData}) => {
     onData(student)
     console.log("data student",student);
     // You can add your logic here to handle the form submission, e.g., sending data to a server or updating state.
+    onClose()
   };
   const handleCancel = (e) => {
     // e.preventDefault();

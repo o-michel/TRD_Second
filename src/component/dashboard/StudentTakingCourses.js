@@ -7,15 +7,114 @@ import studentData from '../../Data/User'
 import ModelContainer from "./ModelContainer";
 
 import AddStudent from "./AddStudent";
+// import axios from 'axios';
+import cookies from "js-cookie";
+import axios, { AxiosError } from "axios";
+import { BASEURL } from "../../App";
+import { useEffect } from 'react';
 
 const StudentsTakingCourse = () => {
   const [items, setItems] = useState(studentData);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [datachild, setdDatachild] = useState("");
+  // const [datachild, setdDatachild] = useState(items);
   // const [courses, setCourses] = useState(studentData);
 
   const [showAddPop, setShowAddPop] = useState(false);
+
+const token = cookies.get('token')
+console.log("useParams",useParams);
+
+
+// test data fetch start
+
+useEffect(() => {
+  axios({
+    method: "get",
+    url: `${BASEURL}/users`,
+
+    // data: formData,
+    headers: {
+      // 'Content-Type': 'text/html',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    }
+    // withCredentials: true
+  })
+  .then((res) => {
+    console.log("zzz",res.data);
+    // console.log("url", url)
+
+    
+  })
+  .catch((err) => {
+        console.log(err);
+        if(err && err instanceof Error) {
+          alert(err.response?.data.msg);
+        } else if(err && err instanceof AxiosError) {
+          alert(err.message)
+        } else {
+            alert('Error')
+        }
+        // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
+      });
+
+}, [])
+
+// console.log("yyy");
+
+
+// console.log(formData);
+
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+//   axios({
+//     method: "post",
+//     url: `${BASEURL}/signin`,
+//     data: formData,
+//     headers: {
+//       'Content-Type': 'application/json',
+//       // Authorization: `Bearer ${token}`
+//     }
+//     // withCredentials: true
+//   })
+//   .then((res) => {
+//     console.log(res.data);
+//     alert(res.data.msg);
+//     console.log(res.data.accessToken);
+//     // cookies.set('token', hard );
+//     cookies.set("temp", res.data.accessToken);
+//     // props.handleAlert(true, 'successfully Loged In!!!', 'success');
+//     navigate(`/verify?email=${formData.email}`);
+//     // window.location.href = '/dashboard'
+//     // if(res.data.data.userType === 'admin') {
+//     //     navigate('/admin')
+//     // } else if(res.data.data.userType === 'subAdmin') {
+//     //     navigate('/subAdmin/examiners')
+//     // } else if(res.data.data.userType === 'examiner') {
+//     //     navigate('/examiner/course');
+//     // } else {
+//     //     navigate('/student/allExams')
+//     // }
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//     if(err && err instanceof Error) {
+//       alert(err.response?.data.msg);
+//     } else if(err && err instanceof AxiosError) {
+//       alert(err.message)
+//     } else {
+//         alert('Error')
+//     }
+//     // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
+//   });
+// };
+
+// test data fetch end
+
+
+
+
 
 
 
@@ -50,34 +149,18 @@ const handleSearch = (event) => {
     console.log("student", id);
     console.log("newItems", newItems);
   };
-  // const handleRemoveStudent = () =>{
-  //   const indexToRemove = studentData.findIndex(item => item.id === studentData.id);
-  //   if (indexToRemove !== -1) {
-  //     studentData.splice(indexToRemove, 1);
-  //   }
-  // }
+
+  
   const handleAddStudent = ( childData) => {
-    // e.preventDefault()
-    // const newItems = items.filter(item => item.id !== id);
-    const id = Math.floor(Math.random() * 1000) + 1
-
-    // const newItems = items.map(item => item.id !== id);
-    // setItems(() => newItems);
-    // console.log("items",items);
-    // console.log("student", id);
-    // console.log("newItems", newItems);
-    setdDatachild(childData)
-    // console.log("callback check", childData);
-    console.log("callback check", datachild);
-    const newPost = {id, name: datachild.name, studentId: datachild.studentId, phoneNumber: datachild.phoneNumber }
-    const allPost = [...items, newPost]
-    setItems(allPost)
-
     // const id = Math.floor(Math.random() * 1000) + 1
+    const id = items.length + 1
+    // console.log('zzz',id);
 
-    // console.log("id", id);
-    // const newPost = {id, ...childData}
-    // setItems([...items, newPost])
+    console.log("callback check", childData);
+    const newPost = {id, name: childData.name, studentId: childData.studentId, phoneNumber: childData.phoneNumber }
+    const allPost = [ newPost, ...items]
+      setItems(allPost)
+      
 
   };
 
