@@ -1,67 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsSearch } from "react-icons/bs";
-import { Link, useParams,useMatch } from 'react-router-dom';
+import { Link,useMatch } from 'react-router-dom';
 
-import studentData from '../../Data/User'
+// import studentData from '../../Data/User'
 
 import ModelContainer from "./ModelContainer";
 
 import AddStudent from "./AddStudent";
 // import axios from 'axios';
-import cookies from "js-cookie";
-import axios, { AxiosError } from "axios";
-import { BASEURL } from "../../App";
-import { useEffect } from 'react';
+// import cookies from "js-cookie";
+// import axios, { AxiosError } from "axios";
+import { AuthContext } from "../../App";
+// import { useEffect } from 'react';
 
 const StudentsTakingCourse = () => {
-  const [items, setItems] = useState(studentData);
+  const { items, setItems } = useContext(AuthContext);
 
   const [searchQuery, setSearchQuery] = useState("");
-  // const [datachild, setdDatachild] = useState(items);
-  // const [courses, setCourses] = useState(studentData);
-
+  // const [studentData, setStudentData] = useState({});
+  // const [items, setItems] = useState([]);
   const [showAddPop, setShowAddPop] = useState(false);
 
-const token = cookies.get('token')
-console.log("useParams",useParams);
-
-
-// test data fetch start
-
-useEffect(() => {
-  axios({
-    method: "get",
-    url: `${BASEURL}/users`,
-
-    // data: formData,
-    headers: {
-      // 'Content-Type': 'text/html',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    }
-    // withCredentials: true
-  })
-  .then((res) => {
-    console.log("zzz",res.data);
-    // console.log("url", url)
-
-    
-  })
-  .catch((err) => {
-        console.log(err);
-        if(err && err instanceof Error) {
-          alert(err.response?.data.msg);
-        } else if(err && err instanceof AxiosError) {
-          alert(err.message)
-        } else {
-            alert('Error')
-        }
-        // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
-      });
-
-}, [])
-
-// console.log("yyy");
+ 
 
 
 // console.log(formData);
@@ -133,9 +93,10 @@ useEffect(() => {
 const handleSearch = (event) => {
   const newSearchQuery = event.target.value || "";
   setSearchQuery(newSearchQuery);
+  
 
-  const filtered = studentData.filter((course) =>
-    course.name.toLowerCase().includes(newSearchQuery.toLowerCase())
+  const filtered = items.filter((course) =>
+    course.firstName.toLowerCase().includes(newSearchQuery.toLowerCase())
   );
   setItems(filtered);
 };
@@ -371,19 +332,19 @@ const handleSearch = (event) => {
         </thead>
         <tbody>
             
-          {items.map(student => (
-            <tr key={student.id} className="hover:bg-gray-100 group">
+          {items.map((student, index) => (
+            <tr key={index} className="hover:bg-gray-100 group">
               <td className="py-2 px-4">
-                <img src={`${student.imageUrl}${student.id}`} alt={student.name} className="w-10 h-10 rounded-full" />
+                <img src={`${student.imageUrl}${student.id}`} alt={student.firstName} className="w-10 h-10 rounded-full" />
                 
               </td>
-              <td className="py-2 px-4">{student.name}</td>
-              <td className="py-2 px-4">{student.studentId}</td>
+              <td className="py-2 px-4">{student.firstName} {student.lastName}</td>
+              <td className="py-2 px-4">{student._id}</td>
               <td className="py-2 px-4">{student.phoneNumber}</td>
-              <td className="py-2 px-4">{student.enrollmentDate}</td>
+              <td className="py-2 px-4">{student.createdDate}</td>
               <td className="py-2 px-4  ">
                 <div className='flex relative justify-between'>
-                <Link to={`${student.id}`} className="text-blue-500 h-8 hover:underline">
+                <Link to={`${student._id}`} className="text-blue-500 h-8 hover:underline">
                   View Profile
                 </Link>
                 <div onClick={() => handleRemoveStudent(student.id)} className='bg-red-0 absolute sm:-right-10   md:-right-16 lg:-right-5 '>

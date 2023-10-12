@@ -103,11 +103,11 @@ const Home = () => {
     <>
          <div className="container w-full mx-auto pt-20">
         {/* ... (rest of your content code start) */}
-        <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+        <div className="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
 
             {/* <!--Console Content--> */}
 
-            <div class="flex flex-wrap">
+            <div className="flex flex-wrap">
                <MetricCard title="total sign up" value="500" />
                <MetricCard title="rergistered student" value="50" />
                <MetricCard title="enrolled courses" value="40" />
@@ -117,18 +117,18 @@ const Home = () => {
             </div>
 
             {/* <!--Divider--> */}
-            {/* <hr class="border-b-2 border-gray-400 my-8 mx-4"> */}
+            {/* <hr className="border-b-2 border-gray-400 my-8 mx-4"> */}
             {/* <hr></hr> */}
 
-            <div class="flex flex-row flex-wrap flex-grow mt-2">
+            <div className="flex flex-row flex-wrap flex-grow mt-2">
 
-                <div class="w-full md:w-1/2 p-3">
+                <div className="w-full md:w-1/2 p-3">
                     {/* <!--Graph Card--> */}
-                    <div class="bg-white border rounded shadow">
-                        <div class="border-b p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    <div className="bg-white border rounded shadow">
+                        <div className="border-b p-3">
+                            <h5 className="font-bold uppercase text-gray-600">Graph</h5>
                         </div>
-                        <div class="p-1">
+                        <div className="p-1">
                             <Chart options={options} series={series} type="bar" width="100%" height="233" />
                           
                         </div>
@@ -136,13 +136,13 @@ const Home = () => {
                     {/* <!--/Graph Card--> */}
                 </div>
 
-                <div class="w-full md:w-1/2 p-3">
+                <div className="w-full md:w-1/2 p-3">
                     {/* <!--Graph Card--> */}
-                    <div class="bg-white border rounded shadow">
-                        <div class="border-b p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    <div className="bg-white border rounded shadow">
+                        <div className="border-b p-3">
+                            <h5 className="font-bold uppercase text-gray-600">Graph</h5>
                         </div>
-                        <div class="p-1">
+                        <div className="p-1">
                             <Chart options={chartData.options} series={chartData.series} type="donut" width="380" />
                             
                         </div>
@@ -155,19 +155,19 @@ const Home = () => {
                 
               
 
-                <div class="w-full p-3">
+                <div className="w-full p-3">
                     {/* <!--Table Card--> */}
-                    <div class="bg-white border rounded shadow">
-                        <div class="border-b p-3">
-                            <h5 class="font-bold uppercase text-gray-600">Table</h5>
+                    <div className="bg-white border rounded shadow">
+                        <div className="border-b p-3">
+                            <h5 className="font-bold uppercase text-gray-600">Table</h5>
                         </div>
-                        <div class="p-5">
-                            <table class="w-full p-5 text-gray-700">
+                        <div className="p-5">
+                            <table className="w-full p-5 text-gray-700">
                                 <thead>
                                     <tr>
-                                        <th class="text-left text-blue-900">Name</th>
-                                        <th class="text-left text-blue-900">Side</th>
-                                        <th class="text-left text-blue-900">Role</th>
+                                        <th className="text-left text-blue-900">Name</th>
+                                        <th className="text-left text-blue-900">Side</th>
+                                        <th className="text-left text-blue-900">Role</th>
                                     </tr>
                                 </thead>
 
@@ -190,7 +190,7 @@ const Home = () => {
                                 </tbody>
                             </table>
 
-                            <p class="py-2"><a href="#">See More issues...</a></p>
+                            <p className="py-2"><a href="#">See More issues...</a></p>
 
                         </div>
                     </div>

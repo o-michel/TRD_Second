@@ -18,6 +18,7 @@ import AdminCourse from './AdminCourse';
 import AdminInstructor from './AdminInstructor';
 // import InstructorsList from '../../../component/dashboard/InstructorsList';
 import InstructorsProfile from '../../../component/dashboard/InstructorsProfile';
+import ListCoursesDetails from '../../../component/dashboard/ListCoursesDetails';
 
 // function DropdownMenuToggle({ children, menuId, buttonId }) {
 //   const [isVisible, setIsVisible] = useState(false);
@@ -72,6 +73,7 @@ function AdminDashboard() {
               {/* </Route> */}
               <Route path='instructors/:id' element={<InstructorsProfile/>} />
               <Route path="courses" element={<AdminCourse />} />
+              <Route path="courses/:id" element={<ListCoursesDetails />} />
               <Route path="completed" element={<CompletedCourses />} />
               {/* <Route path="settings" element={<Settings />} /> */}
           </Routes>

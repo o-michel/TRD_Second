@@ -56,6 +56,7 @@ const handleSearch = (event) => {
   //     studentData.splice(indexToRemove, 1);
   //   }
   // }
+  
   const handleAddStudent = ( childData) => {
     // e.preventDefault()
     // const newItems = items.filter(item => item.id !== id);

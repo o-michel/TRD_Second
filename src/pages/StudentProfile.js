@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import students from '../Data/User'
+// import students from '../Data/User'
+import { AuthContext } from '../App';
 
 function StudentProfile() {
+  const { items } = useContext(AuthContext);
+
 const {id} = useParams()
+
+console.log('id',id);
 
   // const students = [
   //   {id:1, name: "john", studID:"NDAE001", phoneNumber:"08034037821", enrollmentDate: "02-04-2020", Skills:"frontend", experience: {title:"frontend Dev -company A", description:"I work with a team and I am the one that handle there UI" }, img:"https..." },
@@ -11,9 +16,11 @@ const {id} = useParams()
   //   {id:3, name: "Dan", studID:"NDAE001", phoneNumber:"08034037821", enrollmentDate: "02-04-2020", Skills:"frontend", experience: {title:"frontend Dev -company A", description:"I work with a team and I am the one that handle there UI" }, img:"https..." },
   //   {id:4, name: "Ema", studID:"NDAE001", phoneNumber:"08034037821", enrollmentDate: "02-04-2020", Skills:"frontend", experience: {title:"frontend Dev -company A", description:"I work with a team and I am the one that handle there UI" }, img:"https..." },
   // ]
-
-  const student = students.find(student => student.id === parseInt(id));
-
+  
+  // const student = items.find(student => student._id === parseInt(id));
+  const student = items.find(student => student._id === (id));
+  console.log('student',student);
+  
   return (
     <div>
       <div className="bg-gray-100 min-h-screen p-6 flex flex-col items-center">
@@ -27,7 +34,7 @@ const {id} = useParams()
             />
           </div>
           <div className="text-center mt-4 md:mt-0">
-            <h1 className="text-4xl font-semibold text-gray-900">{student.name} </h1>
+            <h1 className="text-4xl font-semibold text-gray-900">{student.firstName} {student.lastName} </h1>
             <p className="text-gray-600 text-lg">Front-end Developer</p>
             <p className="text-gray-700 text-sm mt-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra

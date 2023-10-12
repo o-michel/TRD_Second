@@ -1,7 +1,23 @@
 import React, { useEffect } from 'react'
-import Courses from '../../courses'
+
+// import Courses from '../../courses'
+// import AddStudent from '../../../component/dashboard/AddStudent'
+// import ModelContainer from '../../../component/dashboard/ModelContainer'
+// import { AuthContext } from '../../../App'
+
+// import AddCourse from '../../../component/dashboard/AddCourse'
+import ListCourses from '../../../component/dashboard/ListCourses'
+// import Cookies from 'js-cookie'
+export const BASEURL = 'https://trd-server.onrender.com/api'
+
+
+
+
 
 const AdminCourse = () => {
+
+  
+  
    // Responsible for the scrolling up of the nasted route in the dashboard
    useEffect(() => {
       
@@ -10,14 +26,22 @@ const AdminCourse = () => {
 }, [])
 
 
+
+
+
+
+
+ 
+
+  
+ 
+
+
   return (
-    <div>
-        <div className=' float-right  '>
-            <button className='p-5 m-5 text-gray-500 bg-blue-50 shadow rounded-2xl'>Assign Courses</button>
-            <button className='p-5 m-5  text-gray-500 bg-blue-50 shadow-sm rounded-2xl '>Completed Courses</button>
-            <button className='p-5 m-5  text-gray-500 bg-blue-50 shadow-sm rounded-2xl '>Add Courses</button>
-        </div>
-        <Courses/>
+    <div className='pt-0.5 h-[60vh]'>
+        
+        <ListCourses/>
+        
     </div>
   )
 }

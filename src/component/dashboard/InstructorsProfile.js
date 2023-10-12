@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import instructor from "../../Data/Instructor";
+import { AuthContext } from "../../App";
 
 function InstructorsProfile() {
+  const { instructorList, setInstructorList } = useContext(AuthContext);
+
   // const [items, setItems] = useState(instructor);
 
   const { id } = useParams();
@@ -24,8 +27,8 @@ function InstructorsProfile() {
   //   // Add more students...
   // ];
 
-  const clickedInstructor = instructor.find(
-    (eachInstructor) => eachInstructor.id === parseInt(id)
+  const clickedInstructor = instructorList.find(
+    (eachInstructor) => eachInstructor._id === (id)
   );
   // console.log("student",student);
 
@@ -46,7 +49,7 @@ function InstructorsProfile() {
               </div>
               <div className="text-center mt-4 md:mt-0">
                 <h1 className="text-4xl font-semibold text-gray-900">
-                  {clickedInstructor.gender} {clickedInstructor.name}{" "}
+                  {clickedInstructor.gender} {clickedInstructor.firstName} {clickedInstructor.lastName}{" "}
                 </h1>
                 <p className="text-gray-600 text-lg">
                   student Front-end Developer

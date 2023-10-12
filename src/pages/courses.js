@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import { useLoaderData, useNavigation } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
-import axios, { AxiosError } from "axios";
+import { useState } from "react";
+
+// import { useLoaderData, useNavigation } from "react-router-dom";
+// import { Form, Button } from "react-bootstrap";
+// import axios, { AxiosError } from "axios";
+
+
 import { BsSearch } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { LuCalendarClock } from "react-icons/lu";
@@ -16,9 +19,14 @@ import CourseReact from "../images/react.jpg";
 import CourseDetails from "../component/CourseDetails";
 // import CourseCard from "../component/courseCard";
 
-import cookies from "js-cookie";
+// import cookies from "js-cookie";
+// import { AuthContext } from "../App";
 
 const Courses = () => {
+  // const { courses, setCourses } = useContext(AuthContext);
+
+
+
   // const courses = useLoaderData();
   // const navigation = useNavigation();
   // const [loading, setLoading] = useState(true);
@@ -31,6 +39,12 @@ const Courses = () => {
 
   //   setLoading(false);
   // }, [navigation.state]);
+
+
+
+
+
+
 
   const initialCourses = [
     {
