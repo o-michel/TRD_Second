@@ -26,7 +26,7 @@ const ListCourses = () => {
    
 
 
-      setCourses([...courses, newPost])
+      // setCourses([...courses, newPost])
 
     // axios({
     //   method: "post",

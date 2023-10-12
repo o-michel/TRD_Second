@@ -1,8 +1,16 @@
 // CourseForm.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext, BASEURL } from "../../App";
 import Icon_x from "../../Assets/Icons/x-close.png";
+import axios, { AxiosError } from 'axios';
+import Cookies from 'js-cookie';
+
+const token = Cookies.get('token')
+
 
 const AddCourse = ({onClose, onData}) => {
+  const {courses, setCourses} = useContext(AuthContext)
+
     // const [sm, setSm] = useState(null)
 
     const [Course, setCourse] = useState({
@@ -19,15 +27,17 @@ const AddCourse = ({onClose, onData}) => {
 
 
 
+    
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
 
     setCourse({ ...Course, [name]: value });
-    console.log("Course",Course);
     
   };
-
+  
   const [selectedImage, setSelectedImage] = useState(null);
 
   
@@ -37,7 +47,7 @@ const onFileChange = (e) => {
   const file = e.target.files[0]; // Get the selected file
   // This if statement prevent an error that arises when an img has previously being selected
     if (file) {
-      setCourse({ ...Course, file });
+      setCourse({ ...Course, image:file });
     setSelectedImage(URL.createObjectURL(file));
     };
 
@@ -48,7 +58,52 @@ const onFileChange = (e) => {
 //   HandleAddCourse
   const handleSubmit = (e) => {
     e.preventDefault();
-    onData(Course, selectedImage);
+
+    // const id = Math.floor(Math.random() * 1000) + 1
+
+    // const newPost = { id, title: Course.title, description : Course.description,  duration: Course.duration,start_date: Course.start_date, end_date: Course.end_date, location: Course.location, capacity: Course.capacity, amount: Course.amount, image: selectedImage  }
+    // console.log('new post newPost', newPost);
+    // console.log('new post selectedImage', selectedImage);
+    // onData(Course, selectedImage);
+
+
+    // // Axios request start
+    axios({
+      method: "post",
+      url: `${BASEURL}/course`,
+      data: Course,
+      headers: {
+        // 'Content-Type': 'text/html',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+      // withCredentials: true
+    })
+    .then((res) => {
+      console.log("xxx created-courses",res.data.msg);
+      // const allPost = [newPost, ...courses]
+
+      // setCourses(allPost)
+     
+  
+       
+    })
+    .catch((err) => {
+          console.log(err);
+          if(err && err instanceof Error) {
+            alert(`${err.message} making the posting`)
+            // alert(err.response?.data.msg);
+          } else if(err && err instanceof AxiosError) {
+            alert(err.message)
+          } else {
+              alert('Error')
+          }
+          // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
+        });
+    // // Axios request end
+
+
+
     onClose()
 
   };
@@ -58,6 +113,7 @@ const onFileChange = (e) => {
     onClose()
     // You can add your logic here to handle the form submission, e.g., sending data to a server or updating state.
   };
+  console.log("YES Course",Course);
 
   return (
     // <div className="min-h-screen flex items-center justify-center bg-blue-50">
