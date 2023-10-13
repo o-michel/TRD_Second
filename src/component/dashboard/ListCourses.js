@@ -18,11 +18,11 @@ const ListCourses = () => {
 
 
   const handleAddStudent = ( childData, imgChild) => {
-    const id = Math.floor(Math.random() * 1000) + 1
+    // const id = Math.floor(Math.random() * 1000) + 1
 
-    const newPost = { id, title: childData.title, description : childData.description,  duration: childData.duration,start_date: childData.start_date, end_date: childData.end_date, location: childData.location, capacity: childData.capacity, amount: childData.amount, image: imgChild  }
-    console.log('new post newPost', newPost);
-    console.log('new post imgChild', imgChild);
+    // const newPost = { id, title: childData.title, description : childData.description,  duration: childData.duration,start_date: childData.start_date, end_date: childData.end_date, location: childData.location, capacity: childData.capacity, amount: childData.amount, image: imgChild  }
+    // console.log('new post newPost', newPost);
+    // console.log('new post imgChild', imgChild);
    
 
 
@@ -88,6 +88,8 @@ const ListCourses = () => {
     setShowAddPop(false);
   };
 
+// console.log("ooo",courses.image.path);
+
   // const [currentItems, setCurrentItems] = useState([])
   return (
     <div className="max-w-screen-xl mx-auto mt-10 bg-white p-6 rounded shadow  flex-colume align-middle justify-self-center justify-center ">
@@ -128,7 +130,7 @@ const ListCourses = () => {
           {courses.map((student, index) => (
             <tr key={index} className="hover:bg-gray-100 group">
               <td className="py-2 px-4">
-                <img src={student.image} alt={student.title} className="w-10 h-10 rounded-full" />
+                <img src={`${BASEURL}${student.image}`} alt={student.title} className="w-10 h-10 rounded-full" />
                 
               </td>
               <td className="py-2 px-4">{student.title} </td>
@@ -139,7 +141,7 @@ const ListCourses = () => {
               <td className="py-2 px-4">{student.status ? student.status:"Upcoming"}</td>
               <td className="py-2 px-4  ">
                 <div className='flex relative justify-between'>
-                <Link to={`${student.id}`} className="text-blue-500 h-8 hover:underline">
+                <Link to={`${student._id}`} className="text-blue-500 h-8 hover:underline">
                   View Profile
                 </Link>
                 {/* <div onClick={() => handleRemoveStudent(student.id)} className='bg-red-0 absolute sm:-right-10   md:-right-16 lg:-right-5 '>

@@ -213,7 +213,7 @@ useEffect(() => {
         // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
       });
 
-},[instructorList])
+},[])
 
 // get instructor end
 
@@ -234,7 +234,8 @@ useEffect(() => {
     // withCredentials: true
   })
   .then((res) => {
-    console.log("xxx created-courses",res.data.data);
+    console.log("xxx created-courses",res.data.data.courses);
+    setCourses(res.data.data.courses)
     // console.log("url", url)
     // const studentData = res.data.students
     
@@ -253,8 +254,7 @@ useEffect(() => {
         // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
       });
 
-},[courses])
-
+},[])
 // get created-courses end
 
 

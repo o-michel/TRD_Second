@@ -7,13 +7,13 @@ const ListCoursesDetails = () => {
   const { courses, setCourses } = useContext(AuthContext);
 
   const { id } = useParams();
-  console.log("a id", courses[0].id);
+  // console.log("a id", courses[0].id);
   
   const clickedCourse = courses.find(
-      // (eachCourse) => eachCourse._id === (id)
-      (eachCourse) => eachCourse.id == (id)
+      (eachCourse) => eachCourse._id === (id)
+      // (eachCourse) => eachCourse.id == (id)
       );
-      console.log("b id", clickedCourse);
+      console.log("b id", clickedCourse.image.path);
 
 
 //   const clickedInstructor = instructorList.find(
@@ -25,7 +25,7 @@ const ListCoursesDetails = () => {
         {/* {clickedCourse.title} */}
         <div className="bg-white rounded-lg shadow-md mb-4 p-4">
       <img
-        src={clickedCourse.image} // Add the image source here
+        src={clickedCourse.image.path} // Add the image source here
         alt={clickedCourse.title}
         className="w-full h-60 object-cover mb-4"
       />

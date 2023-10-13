@@ -74,7 +74,8 @@ const onFileChange = (e) => {
       data: Course,
       headers: {
         // 'Content-Type': 'text/html',
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`
       }
       // withCredentials: true
@@ -113,7 +114,7 @@ const onFileChange = (e) => {
     onClose()
     // You can add your logic here to handle the form submission, e.g., sending data to a server or updating state.
   };
-  console.log("YES Course",Course);
+  // console.log("YES Course",Course);
 
   return (
     // <div className="min-h-screen flex items-center justify-center bg-blue-50">
