@@ -1,16 +1,18 @@
 // import { faEllipsis } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import axios from 'axios';
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext, BASEURL } from "../../App";
 import axios, { AxiosError } from "axios";
 import AddCourse from './AddCourse';
 import ModelContainer from './ModelContainer';
 import Cookies from 'js-cookie';
+import imgCallback from "../../images/profile.jpeg";
 
 
 const token = Cookies.get('token')
+
 
 const ListCourses = () => {
   const {courses, setCourses} = useContext(AuthContext)
@@ -18,6 +20,7 @@ const ListCourses = () => {
 
 
   const handleAddStudent = ( childData, imgChild) => {
+
     // const id = Math.floor(Math.random() * 1000) + 1
 
     // const newPost = { id, title: childData.title, description : childData.description,  duration: childData.duration,start_date: childData.start_date, end_date: childData.end_date, location: childData.location, capacity: childData.capacity, amount: childData.amount, image: imgChild  }
@@ -88,11 +91,24 @@ const ListCourses = () => {
     setShowAddPop(false);
   };
 
+
 // console.log("ooo",courses.image.path);
+// let check2 = BASEURL 
+// let check1 = ""
+// let check1 = courses[0].image.path 
+// let check  = {...check2, check1}
+// console.log("check", check);
 
   // const [currentItems, setCurrentItems] = useState([])
+
+
+   // Responsible for the scrolling up of the nasted route in the dashboard
+   useEffect(() => {  
+
+    window.scroll(0,0)
+}, [])
   return (
-    <div className="max-w-screen-xl mx-auto mt-10 bg-white p-6 rounded shadow  flex-colume align-middle justify-self-center justify-center ">
+    <div className="max-w-screen-xl mx-auto bg-white p-6 rounded shadow  flex-colume align-middle justify-self-center justify-center ">
       {/* button start */}
       <div className=" flex justify-end m-2">
           <div className="group relative">
@@ -109,6 +125,9 @@ const ListCourses = () => {
 
         </div>
       {/* button end */}
+
+      <h2 className="text-2xl font-semibold my-8">Students Taking Course</h2>
+
 
         <div className=' overflow-x-auto'>
       <table className="table-auto min-w-max  w-full x-overflow-scroll ">
@@ -130,7 +149,9 @@ const ListCourses = () => {
           {courses.map((student, index) => (
             <tr key={index} className="hover:bg-gray-100 group">
               <td className="py-2 px-4">
-                <img src={`${BASEURL}${student.image}`} alt={student.title} className="w-10 h-10 rounded-full" />
+                 {/* <img src={img} alt={student.title}   className="w-10 h-10 rounded-full" /> */}
+                 <img src='https://trd-server.onrender.com/api/file/e2a1fe6fa9d2595a081509245d9d0d7b.jpg' alt={student.title}   className="w-10 h-10 rounded-full" />
+                {/* <img src={imgCallback} alt={student.title}   className="w-10 h-10 rounded-full" /> */}
                 
               </td>
               <td className="py-2 px-4">{student.title} </td>

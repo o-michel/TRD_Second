@@ -38,7 +38,7 @@ const AdminCourse = () => {
 
 
   return (
-    <div className='pt-0.5 h-[60vh]'>
+    <div className='max-w-screen-xl mx-auto flex-colume align-middle justify-self-center justify-center container mt-8 pt-8 relative '>
         
         <ListCourses/>
         

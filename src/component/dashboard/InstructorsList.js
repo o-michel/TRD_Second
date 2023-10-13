@@ -177,8 +177,27 @@ const InstructorsList = () => {
         <div className='max-w-screen-xl mx-auto  bg-white p-6 rounded shadow  flex-colume align-middle justify-self-center justify-center' >
 
 
-          <div className="bg-white p-6 rounded shadow">
+              <div className=' flex justify-end'>
+                
+                
+                <div className="group relative">
+
+                  <button 
+                  //  onClick={() => setShowAddPop(true)}
+                    className=" bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-xs md:text-base">
+                    Assign Instructor
+                  </button>
+                  <div className="hidden group-hover:block absolute bg-gray-100 text-sm text-gray-700 p-2 rounded shadow-md">
+                      You can assign instructor to a course 
+                  </div>
+                </div>
+                
+              </div> 
+
+
+          {/* <div className="bg-white p-6 rounded shadow"> */}
             <h2 className="text-2xl font-semibold my-8">Students Taking Course</h2>
+            <div className=' overflow-x-auto'>
             <table className="w-full">
               <thead>
                 <tr className="bg-blue-500 text-white">
@@ -207,18 +226,19 @@ const InstructorsList = () => {
                 <Link to={`${Instructor._id}`} className="text-blue-500 h-8 hover:underline">
                   View Profile
                 </Link>
-                <div className='bg-red-0 absolute sm:-right-10   md:-right-16 lg:-right-5 '>
+                {/* <div className='bg-red-0 absolute sm:-right-10   md:-right-16 lg:-right-5 '>
                 <svg className='hidden group-hover:block  animate-pulse cursor-pointer m-0 p-0  h-4  ' xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                   <path fill="#f44336" d="M44,24c0,11-9,20-20,20S4,35,4,24S13,4,24,4S44,13,44,24z"></path><line x1="16.9" x2="31.1" y1="16.9" y2="31.1" fill="none" stroke="#fff" strokeMiterlimit="10" strokeWidth="4"></line><line x1="31.1" x2="16.9" y1="16.9" y2="31.1" fill="none" stroke="#fff" strokeMiterlimit="10" strokeWidth="4"></line>
                 </svg>
-                </div>
+                </div> */}
                 </div>
               </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
+          {/* </div> */}
 
 
         </div>

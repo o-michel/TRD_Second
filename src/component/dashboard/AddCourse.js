@@ -9,7 +9,7 @@ const token = Cookies.get('token')
 
 
 const AddCourse = ({onClose, onData}) => {
-  const {courses, setCourses} = useContext(AuthContext)
+  const {courses, setCourses, setShouldMakeApiCall} = useContext(AuthContext)
 
     // const [sm, setSm] = useState(null)
 
@@ -86,8 +86,11 @@ const onFileChange = (e) => {
 
       // setCourses(allPost)
      
-  
+      
        
+    })
+    .then(() => {
+      setShouldMakeApiCall(true)
     })
     .catch((err) => {
           console.log(err);
@@ -102,7 +105,6 @@ const onFileChange = (e) => {
           // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
         });
     // // Axios request end
-
 
 
     onClose()

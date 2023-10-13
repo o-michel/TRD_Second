@@ -56,83 +56,7 @@ function App() {
 
 
  
-  const initialCourses = [
-    {
-      id: 1,
-      title: "Microsoft Word for Beginners",
-      category: "Introduction to I.C.T.",
-      // image: CourseWord,
-      featured: true,
-      duration: "2 weeks",
-      description:
-        "Master Microsoft Word basics to create and edit documents with confidence.",
-    },
-    {
-      id: 2,
-      title: "HTML, CSS, and JavaScript Fundamentals",
-      category: "Web Development",
-      // image: CourseHTML,
-      featured: true,
-      duration: "4 weeks",
-      description:
-        "Build web pages with HTML, style them with CSS, and add interactivity with JavaScript.",
-    },
-    {
-      id: 3,
-      title: "Data Analysis with Python",
-      category: "Data Science",
-      // image: CourseDAP,
-      duration: "6 weeks",
-      description:
-        "Analyze data using Python, from data manipulation to visualization.",
-    },
-    {
-      id: 4,
-      title: "Excel Mastery: Data Management and Analysis",
-      category: "Introduction to I.C.T.",
-      // image: CourseExcel,
-      featured: true,
-      duration: "3 weeks",
-      description:
-        "Excel skills for data management, formulas, and generating insights.",
-    },
-    {
-      id: 5,
-      title: "PHP and MySQL: Dynamic Web Development",
-      category: "Web Development",
-      // image: CoursePHP,
-      duration: "5 weeks",
-      description:
-        "Create dynamic web apps using PHP and connect to MySQL databases.",
-    },
-    {
-      id: 6,
-      title: "Introduction to Python Programming",
-      category: "Data Science",
-      // image: CoursePython,
-      featured: true,
-      duration: "4 weeks",
-      description: "Learn Python basics for programming and problem-solving.",
-    },
-    {
-      id: 7,
-      title: "Crafting Engaging Presentations with PowerPoint",
-      category: "Introduction to I.C.T.",
-      // image: CoursePPT,
-      duration: "2 weeks",
-      description: "Design captivating presentations using PowerPoint.",
-    },
-    {
-      id: 8,
-      title: "Introduction to React: Building Modern Web Apps",
-      category: "Web Development",
-      // image: CourseReact,
-      featured: true,
-      duration: "6 weeks",
-      description:
-        "Create interactive web apps with React's component-based architecture.",
-    },
-  ];
+  
 
 
 
@@ -214,11 +138,11 @@ useEffect(() => {
       });
 
 },[])
-
 // get instructor end
 
 
 const [courses, setCourses] = useState([]);
+const [shouldMakeApiCall, setShouldMakeApiCall] = useState(true);
 // get created-courses start
 useEffect(() => {
   axios({
@@ -235,7 +159,12 @@ useEffect(() => {
   })
   .then((res) => {
     console.log("xxx created-courses",res.data.data.courses);
-    setCourses(res.data.data.courses)
+    if (shouldMakeApiCall) {
+      setCourses(res.data.data.courses)
+      // Make the API request
+      // Update state if necessary
+      setShouldMakeApiCall(false)
+    }
     // console.log("url", url)
     // const studentData = res.data.students
     
@@ -254,8 +183,15 @@ useEffect(() => {
         // props.handleAlert(false, e.response.data ? e.response.data : e.message, 'danger');
       });
 
-},[])
+},[courses, shouldMakeApiCall])
 // get created-courses end
+
+// // Separate effect to update the courses state
+// useEffect(() => {
+//   // Update the courses state when the data is available
+//   // This effect will run whenever the 'courses' dependency changes
+//   setCourses(dataFromApi);
+// }, [dataFromApi]);
 
 
 
@@ -356,7 +292,7 @@ useEffect(() => {
   )
 
   return (
-    <AuthContext.Provider value={{ authenticatedUser, handleAuth, items, setItems, setInstructorList, instructorList, courses, setCourses }}>
+    <AuthContext.Provider value={{ authenticatedUser, handleAuth, items, setItems, setInstructorList, instructorList, courses, setCourses, setShouldMakeApiCall }}>
       {/* <> */}
       {/* <Navbarr /> */}
 
