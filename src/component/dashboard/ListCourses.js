@@ -12,7 +12,7 @@ import imgCallback from "../../images/profile.jpeg";
 
 
 const token = Cookies.get('token')
-
+// const img = `${BASEURL}/file/${student.image.file}`
 
 const ListCourses = () => {
   const {courses, setCourses} = useContext(AuthContext)
@@ -150,7 +150,7 @@ const ListCourses = () => {
             <tr key={index} className="hover:bg-gray-100 group">
               <td className="py-2 px-4">
                  {/* <img src={img} alt={student.title}   className="w-10 h-10 rounded-full" /> */}
-                 <img src='https://trd-server.onrender.com/api/file/e2a1fe6fa9d2595a081509245d9d0d7b.jpg' alt={student.title}   className="w-10 h-10 rounded-full" />
+                 <img src={`https://trd-server.onrender.com/api/file/${student.image.path}`} alt={student.title}   className="w-10 h-10 rounded-full" />
                 {/* <img src={imgCallback} alt={student.title}   className="w-10 h-10 rounded-full" /> */}
                 
               </td>
